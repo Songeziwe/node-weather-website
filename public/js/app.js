@@ -17,6 +17,8 @@ const form = document.querySelector('main > form')
 const inputField = document.querySelector('input')
 const forecastElement = document.getElementById('forecast')
 const locationElement = document.getElementById('location')
+const currentTemperature = document.getElementById('current-temp')
+const feelsLikeTemperature = document.getElementById('feels-like')
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault()
@@ -30,6 +32,8 @@ form.addEventListener('submit', async (e) => {
       if(!res.error) {
         inputField.value = null
         forecastElement.textContent = `Sky: ${res.data.forecast}`
+        currentTemperature.textContent = `Temperature: ${res.data.currentTemperature}`
+        feelsLikeTemperature.textContent = `Feels Like: ${res.data.feelsLike}`
         locationElement.textContent = `Location: ${res.data.location}`
       } else forecastElement.textContent = res.error
     })
