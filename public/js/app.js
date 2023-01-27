@@ -4,7 +4,7 @@ const base_url = 'http://localhost:3000'
 
 // make http request from the client side to the server
 const getData = async (address = 'Boston', callback) => {
-  fetch(`${base_url}/weather?address=${ address }`)
+  fetch(`/weather?address=${ address }`)
   .then(res => {
     res.json().then(data => {
       if(data.error) callback({ error: data.error, data: undefined }) 
